@@ -60,6 +60,7 @@ void yellow(char*str) {
 }
 
 void game() {
+	system("clear");
   puts("\x1B[32m **************** GAME **************** \033[0m");
   printf("\x1B[33m           Rock Paper Scissors\033[0m\n");
   printf("\x1B[34m========================================\033[0m\n");
