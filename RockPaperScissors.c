@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int selection = 0, cpu = 0, yourScore = 0, cpuScore = 0;
+int selection = 0, cpu = 0, yourScore = 0, cpuScore = 0, ext = 0;
 
 void blue(char*);
 void green(char*);
@@ -25,6 +25,8 @@ int main(void) {
   menu();
   yourSelect();
   while (1) {
+		if (ext == 1)
+			break;
     show_selection();
     show_res();
     yourSelect();
@@ -86,9 +88,14 @@ void menu() {
 void yourSelect() {
   char s[3];
   while (1) {
-    printf("%s", "\n\nYour selection: ");
+    printf("%s", "\n\nYour selection(e -> exit): ");
     scanf("%s", s);
-    if (s[0] == '1' || s[0] == '2' || s[0] == '3') {
+    if (s[0] == 'e') {
+			ext = 1;
+			yellow("\tGoodbye\n");
+			break;
+    }
+		else if (s[0] == '1' || s[0] == '2' || s[0] == '3') {
       char a[] = {s[0], '\0'};
       int n = atoi(a);
       selection = n;
