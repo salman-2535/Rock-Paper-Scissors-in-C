@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
 int selection = 0, cpu = 0, yourScore = 0, cpuScore = 0, ext = 0;
 
@@ -16,6 +17,7 @@ void yourSelect();
 void show_selection();
 void show_res();
 void cal_score();
+void goodbye();
 
 /*********** MAIN *************/
 
@@ -92,7 +94,7 @@ void yourSelect() {
     scanf("%s", s);
     if (s[0] == 'e') {
 			ext = 1;
-			yellow("\tGoodbye\n");
+			goodbye();
 			break;
     }
 		else if (s[0] == '1' || s[0] == '2' || s[0] == '3') {
@@ -180,4 +182,16 @@ void cal_score() {
 		else if (cpu == 2)
 		  yourScore++;
 	}
+}
+
+void goodbye() {
+	system("clear");
+	puts("  ____                 _ _");
+	puts(" / ___| ___   ___   __| | |__  _   _  ___");
+	puts("| |  _ / _ \\ / _ \\ / _` | '_ \\| | | |/ _ \\");
+	puts("| |_| | (_) | (_) | (_| | |_) | |_| |  __/");
+	puts(" \\____|\\___/ \\___/ \\__,_|_.__/ \\__, |\\___|");
+	puts("                               |___/");
+	sleep(3);
+	system("clear");
 }
